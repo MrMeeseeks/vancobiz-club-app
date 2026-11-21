@@ -28,11 +28,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setRole(null)
       return
     }
-    const { data } = await supabase
-      .from('member_accounts')
-      .select('role, member:members(*)')
-      .eq('user_id', s.user.id)
-      .maybeSingle()
+    // my_account() matches the confirmed login email to an account (see supabase/migrations).
+    const { data } = await supabase.rpc('my_account')
     const row = data as { role: Role; member: Member | null } | null
     setMember(row?.member ?? null)
     setRole(row?.role ?? null)

@@ -145,3 +145,10 @@ tr:last-child td { border-block-end: 0; }
 .hero { padding-block: var(--space-2) var(--space-5); }
 .hero p { color: var(--color-muted); max-inline-size: 640px; }
 .flow-bar { block-size: 8px; border-radius: var(--radius-pill); background: var(--color-gold); min-inline-size: 4px; }
+
+/* Small phones: keep the header on one line */
+@media (max-width: 420px) {
+  .site-header .container { gap: var(--space-2); }
+  .brand { font-size: 1.15rem; }
+  .site-header .btn-sm, .lang-toggle { padding-inline: var(--space-2); font-size: 0.8rem; }
+}
