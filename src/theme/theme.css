@@ -1,0 +1,50 @@
+/*
+ * VancoBiz Club theme: the ONE file to restyle the app.
+ * Change colours, fonts, radii and spacing here; components only use these variables.
+ */
+:root {
+  /* Colours */
+  --color-bg: #ffffff;
+  --color-surface: #fbf8f2;        /* soft cream panels */
+  --color-text: #1f1b14;
+  --color-muted: #6f675a;
+  --color-border: #ece3d0;
+  --color-gold: #b8964f;           /* main accent */
+  --color-gold-deep: #8c6e2e;      /* hover, gold text on white */
+  --color-gold-soft: #f3ead6;      /* tints, badges */
+  --color-on-gold: #ffffff;
+  --color-success: #2f7d4f;
+  --color-success-soft: #e5f3ea;
+  --color-danger: #a8392f;
+  --color-danger-deep: #8a2c23;
+  --color-danger-soft: #f8e6e3;
+  --color-info: #3d4d6a;
+  --color-info-soft: #eef1f6;
+
+  /* Membership card */
+  --card-gradient: linear-gradient(135deg, #e2c98d 0%, #c6a35c 45%, #ecdcae 75%, #b8964f 100%);
+  --card-text: #2a2210;
+
+  /* Typography */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-fa: "Vazirmatn Variable", "Vazirmatn", Tahoma, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+
+  /* Shape and space */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --shadow: 0 1px 2px rgba(31, 27, 20, 0.04), 0 4px 16px rgba(31, 27, 20, 0.06);
+  --content-width: 1040px;
+}
