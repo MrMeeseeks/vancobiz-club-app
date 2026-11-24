@@ -14,6 +14,7 @@ In Supabase open **SQL Editor → New query**. For each file below, paste the wh
 2. `supabase/migrations/20261120000002_email.sql`
 3. `supabase/migrations/20261120000003_functions.sql`
 4. `supabase/migrations/20261120000004_rls.sql`
+5. `supabase/migrations/20261124000001_survey.sql` (the member survey at `/#/survey`; until this is run, survey answers are not saved)
 5. `supabase/seed.sql`
 
 Check: **Table Editor → members** shows 17 rows, and every table shows "RLS enabled".

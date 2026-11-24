@@ -36,7 +36,7 @@ Other commands:
 |---|---|
 | `npm run build` | Type-checks and builds to `dist/` |
 | `npm run preview` | Serves the built site locally |
-| `npm run test:db` | Applies all migrations and the seed to an in-memory Postgres (PGlite) and runs 75 checks on Row Level Security and the database functions |
+| `npm run test:db` | Applies all migrations and the seed to an in-memory Postgres (PGlite) and runs 86 checks on Row Level Security and the database functions |
 
 ## Deploy
 

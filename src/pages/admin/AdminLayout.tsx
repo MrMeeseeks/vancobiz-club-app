@@ -12,6 +12,7 @@ export function AdminLayout() {
         <NavLink to="/admin/referrals">{t('adminNav.referrals')}</NavLink>
         <NavLink to="/admin/members">{t('adminNav.members')}</NavLink>
         <NavLink to="/admin/requests">{t('adminNav.requests')}</NavLink>
+        <NavLink to="/admin/survey">{t('adminNav.survey')}</NavLink>
       </nav>
       <Outlet />
     </div>

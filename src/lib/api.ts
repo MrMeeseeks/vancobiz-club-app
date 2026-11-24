@@ -12,6 +12,7 @@ import {
   type ReferralStatus,
   type ReferralWithMembers,
   type Role,
+  type SurveyResponse,
 } from './types'
 
 function unwrap<T>(res: { data: T | null; error: { message: string } | null }): T {
@@ -135,4 +136,41 @@ export async function rejectJoinRequest(id: string) {
 
 export async function deleteJoinRequest(id: string) {
   unwrap(await supabase.from('join_requests').delete().eq('id', id))
+}
+
+// ---- Member survey ----
+export type SurveyInput = {
+  member_number: number | null
+  time_sink: string
+  repeat_questions: string
+  lost_client: string
+  ai_tools: string
+  ai_use: string
+  one_wish: string
+  ok_to_chat: boolean
+  lang: 'en' | 'fa'
+}
+/** Saves one answer sheet. Without a database (preview) it does nothing, and the page says so. */
+export async function submitSurvey(input: SurveyInput) {
+  if (!isConfigured) return
+  const blank = (v: string) => v.trim() || null
+  unwrap(
+    await supabase.from('survey_responses').insert({
+      ...input,
+      time_sink: input.time_sink.trim(),
+      repeat_questions: blank(input.repeat_questions),
+      lost_client: blank(input.lost_client),
+      ai_tools: blank(input.ai_tools),
+      ai_use: blank(input.ai_use),
+      one_wish: blank(input.one_wish),
+    }),
+  )
+}
+
+export async function listSurveyResponses(): Promise<SurveyResponse[]> {
+  return unwrap(await supabase.from('survey_responses').select('*').order('created_at', { ascending: false }))
+}
+
+export async function deleteSurveyResponse(id: string) {
+  unwrap(await supabase.from('survey_responses').delete().eq('id', id))
 }

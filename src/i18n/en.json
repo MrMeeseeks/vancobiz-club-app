@@ -22,7 +22,8 @@
     "overview": "Overview",
     "referrals": "All referrals",
     "members": "Members",
-    "requests": "Join requests"
+    "requests": "Join requests",
+    "survey": "Survey"
   },
   "common": {
     "loading": "Loading…",
@@ -224,7 +225,19 @@
     "req_new": "New",
     "req_approved": "Approved",
     "req_rejected": "Rejected",
-    "categoryRequired": "Choose a category."
+    "categoryRequired": "Choose a category.",
+    "surveyTitle": "Survey answers",
+    "surveyLink": "Link to send to members:",
+    "surveyCount": "{n} answer sheet(s)",
+    "surveyOkToChat": "OK to call",
+    "surveyField": {
+      "time_sink": "Biggest time sink",
+      "repeat_questions": "Repeated questions",
+      "lost_client": "Last lost client",
+      "ai_tools": "AI tools",
+      "ai_use": "Uses AI for",
+      "one_wish": "One wish"
+    }
   },
   "voice": {
     "badge": "Prototype",
@@ -270,5 +283,37 @@
       "one_thing": "The one thing the tool should do well",
       "interviewer_notes": "Notes for follow-up"
     }
+  },
+  "survey": {
+    "logoLabel": "VancoBiz logo",
+    "title": "Five quick questions",
+    "intro": "We want to build something that saves you time with your clients. Tell us where your week really goes, and we will build around that.",
+    "meta": "2 minutes · Short answers are fine",
+    "who": "Who is answering?",
+    "whoNone": "Prefer not to say",
+    "q": {
+      "time_sink": "What task eats most of your time each week?",
+      "repeat_questions": "What do clients ask you over and over?",
+      "lost_client": "Think of the last client you lost. What happened?",
+      "ai_tools": "Which AI tools do you use today?",
+      "ai_use": "What do you use them for?",
+      "one_wish": "If one thing in your business ran itself, what would you choose?"
+    },
+    "hint": {
+      "time_sink": "For example: answering messages, writing quotes, booking, chasing payments.",
+      "repeat_questions": "Prices, hours, \"do you do X?\" Write two or three.",
+      "lost_client": "A slow reply, price, no follow-up? No client names please.",
+      "one_wish": "Dream a little. One sentence is enough."
+    },
+    "tool_other": "Other",
+    "tool_none": "None yet",
+    "okToChat": "Amin or Salar may call me for a 15-minute chat about my answers.",
+    "privacy": "Only Amin and Salar read your answers. Please do not write any client names or phone numbers. Answers are stored with Supabase, our database provider.",
+    "submit": "Send my answers",
+    "sending": "Sending…",
+    "thanksTitle": "Thank you!",
+    "thanksBody": "Your answers reached the club. We will share what we learn at the next meeting.",
+    "previewNote": "Preview only: answers are not saved until the club database is connected.",
+    "previewDone": "This was a preview, so nothing was saved. Once the club database is connected, answers will reach the admins."
   }
 }

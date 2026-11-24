@@ -242,6 +242,30 @@ await as(amin, async () => {
   ok('its events and notifications are gone', (await rows('select 1 from public.referral_events')).length === 0)
 })
 
+console.log('Member survey')
+await db.exec('delete from net.sent;')
+await as(null, async () => {
+  await rows(`insert into public.survey_responses (member_number, time_sink, ai_tools, ok_to_chat, lang)
+    values (5, 'Answering the same WhatsApp questions', 'ChatGPT, Gemini', true, 'fa')`)
+  ok('visitor can submit a survey answer', true)
+  await denied('visitor cannot read survey answers', () => rows('select * from public.survey_responses'))
+  await denied('visitor cannot backdate a survey answer', () =>
+    rows(`insert into public.survey_responses (time_sink, created_at) values ('x', '2020-01-01')`))
+  await denied('survey answer needs the first question', () => rows(`insert into public.survey_responses (time_sink) values ('')`))
+  await denied('visitor cannot delete survey answers', () => rows('delete from public.survey_responses returning id'))
+})
+ok('both admins were told about the survey answer', (await sent()).filter((b) => b.subject.startsWith('New survey answer')).length === 2)
+ok('the survey email carries no answers', !JSON.stringify(await sent()).includes('WhatsApp'))
+await as(salarE, async () => {
+  ok('a member cannot read survey answers', (await rows('select id from public.survey_responses')).length === 0)
+  ok('a member cannot delete survey answers', (await rows('delete from public.survey_responses returning id')).length === 0)
+})
+await as(builder, async () => {
+  const all = await rows('select * from public.survey_responses')
+  ok('admin reads survey answers', all.length === 1 && all[0].member_number === 5 && all[0].ok_to_chat === true)
+  ok('admin deletes a survey answer', (await rows('delete from public.survey_responses where id = $1 returning id', [all[0].id])).length === 1)
+})
+
 console.log('Email switch')
 await db.exec(`delete from net.sent; update public.member_accounts set login_email = 'member05@example.com' where login_email = 'navid@club.test';`)
 const navid2 = await login('member05@example.com')

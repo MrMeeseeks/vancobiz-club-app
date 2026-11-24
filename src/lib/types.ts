@@ -102,3 +102,17 @@ export type MonthReport = {
 }
 
 export const MEMBER_REF_COLUMNS = 'id,member_number,full_name,full_name_fa,business_name,business_name_fa,category_id'
+
+export type SurveyResponse = {
+  id: string
+  member_number: number | null
+  time_sink: string
+  repeat_questions: string | null
+  lost_client: string | null
+  ai_tools: string | null
+  ai_use: string | null
+  one_wish: string | null
+  ok_to_chat: boolean
+  lang: 'en' | 'fa'
+  created_at: string
+}
