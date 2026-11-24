@@ -1,0 +1,39 @@
+{
+  "type": "client",
+  "name": "save_business_profile",
+  "description": "Save the business profile learned in this interview. Call exactly once, at the end, after the member has confirmed your spoken summary. Contains business facts only, never personal information about the member's clients.",
+  "expects_response": true,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "business_name": { "type": "string", "description": "Exact name of the business." },
+      "online_presence": { "type": "string", "description": "Website, Instagram, Google profile, address, hours and area served, as stated." },
+      "services": { "type": "string", "description": "What the business offers, one service or product per line." },
+      "not_offered": { "type": "string", "description": "What they do not do, and who they refer those requests to." },
+      "pricing": { "type": "string", "description": "How prices or fees work: list, ranges or formula, deposits, minimums, and what changes daily or weekly." },
+      "faqs": {
+        "type": "array",
+        "description": "The questions clients ask most often, each with the member's real answer in their own words.",
+        "items": {
+          "type": "object",
+          "description": "One client question and the member's answer.",
+          "properties": {
+            "question": { "type": "string", "description": "The client's question." },
+            "answer": { "type": "string", "description": "How the member actually answers it, in their wording." }
+          },
+          "required": ["question", "answer"]
+        }
+      },
+      "channels": { "type": "string", "description": "How clients reach them and the rough share per channel." },
+      "current_tools": { "type": "string", "description": "Software and AI tools they already use, with likes and dislikes." },
+      "tone": { "type": "string", "description": "How they talk to clients: formality, greetings, sign-off, Persian script or Latin letters, plus one example message without client details." },
+      "rules": { "type": "string", "description": "Licence wording, required disclaimers and things they must never promise or say." },
+      "member_specific_answer": { "type": "string", "description": "Their answer to the member-specific question." },
+      "biggest_time_sink": { "type": "string", "description": "The single client task that costs them the most time each week." },
+      "one_thing": { "type": "string", "description": "The one thing they want the tool to do well." },
+      "interview_language": { "type": "string", "description": "Main language of the interview: 'fa' or 'en'." },
+      "interviewer_notes": { "type": "string", "description": "Anything unclear, skipped or worth a human follow-up." }
+    },
+    "required": ["business_name", "services", "faqs", "interview_language"]
+  }
+}

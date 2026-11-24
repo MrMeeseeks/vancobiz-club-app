@@ -152,3 +152,12 @@ tr:last-child td { border-block-end: 0; }
   .brand { font-size: 1.15rem; }
   .site-header .btn-sm, .lang-toggle { padding-inline: var(--space-2); font-size: 0.8rem; }
 }
+
+/* Voice interview prototype */
+.voice-orb { inline-size: 96px; block-size: 96px; border-radius: 50%; margin-inline: auto; background: var(--card-gradient); transition: transform 0.3s ease; }
+.voice-orb.is-speaking { animation: voice-pulse 1.2s ease-in-out infinite; }
+@keyframes voice-pulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 var(--color-gold-soft); } 50% { transform: scale(1.08); box-shadow: 0 0 0 16px var(--color-gold-soft); } }
+@media (prefers-reduced-motion: reduce) { .voice-orb.is-speaking { animation: none; box-shadow: 0 0 0 10px var(--color-gold-soft); } }
+.voice-log { max-block-size: 320px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-3); display: grid; gap: var(--space-2); }
+.voice-log p { margin: 0; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); background: var(--color-surface); }
+.voice-log .voice-user { background: var(--color-gold-soft); }

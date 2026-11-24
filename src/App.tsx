@@ -8,6 +8,7 @@ import { MemberProfile } from './pages/public/MemberProfile'
 import { Privacy } from './pages/public/Privacy'
 import { Join } from './pages/public/Join'
 import { Login } from './pages/public/Login'
+import { VoiceTest } from './pages/public/VoiceTest'
 import { Dashboard } from './pages/app/Dashboard'
 import { SendReferral } from './pages/app/SendReferral'
 import { Referrals } from './pages/app/Referrals'
@@ -32,6 +33,8 @@ export function App() {
               <Route path="join" element={<Join />} />
               <Route path="privacy" element={<Privacy />} />
               <Route path="login" element={<Login />} />
+              {/* Prototype, not linked from the nav */}
+              <Route path="voice-test" element={<VoiceTest />} />
               {/* Members */}
               <Route path="app" element={<RequireMember />}>
                 <Route index element={<Dashboard />} />
